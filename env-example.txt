@@ -1,0 +1,14 @@
+# Copia este archivo como .env y completa con tus credenciales
+
+# API Key secreta para proteger los endpoints POST
+API_KEY=tu-api-key-super-secreta-aqui
+
+# Puerto del servidor (opcional, por defecto 3000)
+PORT=3000
+
+# Configuración de la base de datos MySQL
+DB_HOST=162.241.62.48
+DB_USER=fpadactive
+DB_PASSWORD=QLG~4{!^x@*F
+DB_NAME=driedfru_active
+
