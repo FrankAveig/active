@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "active-service-api-collection",
+		"name": "Active Service API",
+		"description": "Colección de endpoints para la API de activación/desactivación de servicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Públicos",
+			"item": [
+				{
+					"name": "Obtener Estado del Servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/service/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"status"
+							]
+						},
+						"description": "Endpoint público para obtener el estado actual del servicio (activo/inactivo)"
+					},
+					"response": []
+				},
+				{
+					"name": "Activar Servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/service/activate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"activate"
+							]
+						},
+						"description": "Endpoint público para activar el servicio"
+					},
+					"response": []
+				},
+				{
+					"name": "Desactivar Servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/service/deactivate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"deactivate"
+							]
+						},
+						"description": "Endpoint público para desactivar el servicio"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints públicos que no requieren autenticación"
+		},
+		{
+			"name": "POST Protegidos",
+			"item": [
+				{
+					"name": "Activar Servicio (Protegido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/service/activate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"activate"
+							]
+						},
+						"description": "Endpoint protegido para activar el servicio. Requiere API key en el header x-api-key"
+					},
+					"response": []
+				},
+				{
+					"name": "Desactivar Servicio (Protegido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/service/deactivate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"deactivate"
+							]
+						},
+						"description": "Endpoint protegido para desactivar el servicio. Requiere API key en el header x-api-key"
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar Estado del Servicio (Toggle)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/service/toggle",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"service",
+								"toggle"
+							]
+						},
+						"description": "Endpoint protegido para cambiar el estado del servicio. Requiere API key y un body con el campo 'active' (true/false)"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints protegidos que requieren API key en el header x-api-key"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "tu-api-key-super-secreta-aqui",
+			"type": "string"
+		}
+	]
+}
+
